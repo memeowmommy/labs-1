@@ -1,0 +1,43 @@
+#include <iostream>
+using namespace std;
+int main() {
+	int n;
+	cin >> n;
+	int mas[10005];
+	bool flag = true;
+
+	for (int i = 0; i < n; i++)
+	{
+		cin >> mas[i];
+		int q = mas[i];
+		while (q > 9)
+		{
+			q /= 10;
+		}
+		if (q == 1)
+		{
+			flag = false;
+		}
+
+	}
+	if (!flag)
+	{
+		for (int i = 0; i < n - 1; i++)
+		{
+			for (int j = i + 1; j < n; j++)
+			{
+				if (mas[i] > mas[j])
+				{
+					swap(mas[i], mas[j]);
+				}
+			}
+		}
+
+	}
+	for (int i = 0;i < n;i++)
+	{
+		cout << mas[i] << endl;
+	}
+	system("pause");
+	return 0;
+}
